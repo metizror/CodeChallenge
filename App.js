@@ -30,7 +30,7 @@ var seletedData = {}
 export default function App() {
   const [isModalOpen, setVisible] = useState(false);
   const [people] = useUsers();
-  
+
 
 
   setModalOpen = () => {
@@ -59,7 +59,7 @@ export default function App() {
         visible={isModalOpen}
         onRequestClose={() => { setVisible(false) }}>
 
-        <Modall data={seletedData} />
+        <Modall data={seletedData} onpress={() => setVisible(false)} />
       </Modal>
     </SafeAreaView>
   );
