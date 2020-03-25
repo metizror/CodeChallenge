@@ -48,10 +48,6 @@ export default function App() {
     setVisible(isModalOpen = !isModalOpen)
   }
 
-
-  console.log(JSON.stringify(people))
-  console.log("filterData: " + JSON.stringify(filteredEmails))
-
   return (
     <SafeAreaView style={s.root}>
       <View style={s.container}>
@@ -88,14 +84,6 @@ export default function App() {
         <Modall data={seletedData} onpress={() => setVisible(false)} />
 
       </Modal>
-      {/* <Modal
-        animationType={"fade"}
-        transparent={true}
-        visible={isModalOpen}
-        onRequestClose={() => { setVisible(false) }}>
-
-        <Modall data={seletedData} onpress={() => setVisible(false)} />
-      </Modal> */}
     </SafeAreaView>
   );
 }

@@ -25,5 +25,3 @@ export default class PeopleListRow extends React.Component {
   }
 
 };
-
-// export default class PeopleListRow;

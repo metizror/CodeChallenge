@@ -72,12 +72,6 @@ export default class CustomModal extends React.Component {
     }).start();
   }
 
-  // Animated.timing(this.state.animated, {
-  //   toValue: 100,
-  //   duration: 500
-  // }).start()
-
-
   render() {
     let { data, onpress } = this.props
     if (Platform.OS === 'android') {
