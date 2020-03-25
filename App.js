@@ -25,11 +25,15 @@ const s = StyleSheet.create({
   },
 });
 
+var seletedData = {}
+
 export default function App() {
   const [isModalOpen, setVisible] = useState(false);
   const [people] = useUsers();
+  
 
-  function setModalOpen()  {
+
+  setModalOpen = () => {
     setVisible(isModalOpen = !isModalOpen)
   }
 
@@ -42,7 +46,10 @@ export default function App() {
         <TextInput style={s.input} />
         <SectionList
           sections={people}
-          renderItem={({ item }) => <PeopleListRow {...item} />}
+          renderItem={({ item }) => <PeopleListRow data={item} onpress={() => {
+            seletedData = item
+            setVisible(true)
+          }} />}
           keyExtractor={(item) => item.login.uuid}
         />
       </View>
@@ -50,9 +57,9 @@ export default function App() {
         animationType={"fade"}
         transparent={true}
         visible={isModalOpen}
-        onRequestClose={() => { console.log("Modal has been closed.") }}>
+        onRequestClose={() => { setVisible(false) }}>
 
-        <Modall />
+        <Modall data={seletedData} />
       </Modal>
     </SafeAreaView>
   );
