@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, TextInput, SectionList, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, SectionList, SafeAreaView, Modal } from 'react-native';
 import PeopleListRow from './components/PeopleListRow';
 import useUsers from './utils/useUsers';
-import Modal from './components/Modal';
+import Modall from './components/Modal';
 
 const s = StyleSheet.create({
   root: {
@@ -26,7 +26,14 @@ const s = StyleSheet.create({
 });
 
 export default function App() {
+  const [isModalOpen, setVisible] = useState(false);
   const [people] = useUsers();
+
+  function setModalOpen()  {
+    setVisible(isModalOpen = !isModalOpen)
+  }
+
+  console.log(JSON.stringify(people))
 
   return (
     <SafeAreaView style={s.root}>
@@ -39,7 +46,14 @@ export default function App() {
           keyExtractor={(item) => item.login.uuid}
         />
       </View>
-      <Modal />
+      <Modal
+        animationType={"fade"}
+        transparent={true}
+        visible={isModalOpen}
+        onRequestClose={() => { console.log("Modal has been closed.") }}>
+
+        <Modall />
+      </Modal>
     </SafeAreaView>
   );
 }
