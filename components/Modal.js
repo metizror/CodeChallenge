@@ -5,7 +5,7 @@ const { width, height } = Dimensions.get('window');
 
 const s = StyleSheet.create({
   root: {
-    display: 'flex',
+    display: 'none',
     alignItems: 'center',
     justifyContent: 'center',
     position: Platform.OS === 'web' ? 'fixed' : 'absolute',
@@ -13,6 +13,7 @@ const s = StyleSheet.create({
     left: 0,
     width: '100%',
     height: '100%',
+    backgroundColor:'rgba(0, 0, 0, 0.2)'
   },
   modal: {
     width: Math.min(width - 40, 400),
@@ -43,7 +44,8 @@ const s = StyleSheet.create({
     marginTop: 10
   },
   viewStyle: {
-    padding: 16
+    padding: 16,
+    backgroundColor:'white'
   },
   closeBtnStyle: {
     height: 30,

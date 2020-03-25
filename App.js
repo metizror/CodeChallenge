@@ -15,7 +15,7 @@ const s = StyleSheet.create({
     width: '100%',
     textAlign: 'center',
     fontWeight: '900',
-    padding: 10,
+    marginTop: 20,
   },
   input: {
     margin: 10,
