@@ -11,12 +11,13 @@ const s = StyleSheet.create({
     position: Platform.OS === 'web' ? 'fixed' : 'absolute',
     top: 0,
     left: 0,
+    right:0,
+    bottom:0,
     width: '100%',
     height: '100%',
-    backgroundColor:'rgba(0, 0, 0, 0.2)'
   },
   modal: {
-    width: Math.min(width - 40, 400),
+    width: Math.min(width - 30, 400),
     height: 200,
     backgroundColor: 'white',
     borderWidth: StyleSheet.hairlineWidth,
@@ -71,13 +72,6 @@ export default class CustomModal extends React.Component {
     }).start();
   }
 
-
-  stopAnimation = () => {
-    Animated.timing(this.state.animated, {
-      toValue: 0,
-      duration: 1000,
-    }).start();
-  }
   // Animated.timing(this.state.animated, {
   //   toValue: 100,
   //   duration: 500
@@ -91,7 +85,6 @@ export default class CustomModal extends React.Component {
     }
     this.startAnimation()
 
-    console.log("Selected Data: " + JSON.stringify(data))
     return (
       <View
         style={[s.root, /* { backgroundColor: '' } <-- animate this color */]}
